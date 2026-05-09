@@ -156,6 +156,9 @@ async function start(): Promise<void> {
       // 8. Shifting geometry (only when player not looking)
       floors.shifting.update(renderer.camera);
 
+      // 8b. Pulse exit-marker doorways
+      floors.tickExitMarkers(dt);
+
       // 9. Per-floor scripted tick
       floors.onTick?.({
         dt,
